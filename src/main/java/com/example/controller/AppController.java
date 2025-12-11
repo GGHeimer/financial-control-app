@@ -1,5 +1,13 @@
-package com.example.financial_control_app.controller;
+package com.example.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
 public class AppController {
     
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
 }
