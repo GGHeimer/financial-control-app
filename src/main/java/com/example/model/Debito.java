@@ -1,7 +1,7 @@
 package com.example.model;
 
 public class Debito {
-    private int idDebito;
+    private Long idDebito;
     private String nomDebito;
     private double valDebito;
     private String venDebito;
@@ -10,7 +10,7 @@ public class Debito {
     
     
     // Construtor
-    public Debito(int idDebito, String nomDebito, double valDebito, String venDebito, boolean estDebito,
+    public Debito(Long idDebito, String nomDebito, double valDebito, String venDebito, boolean estDebito,
                 String catDebito) {
             this.idDebito = idDebito;
             this.nomDebito = nomDebito;
@@ -21,7 +21,7 @@ public class Debito {
         }
 
     // Getters and Setters
-    public int getIdDebito() { return idDebito; }
+    public Long getIdDebito() { return idDebito; }
     public String getNomDebito() { return nomDebito; }
     public void setNomDebito(String nomDebito) { this.nomDebito = nomDebito; }
     public double getValDebito() { return valDebito; }

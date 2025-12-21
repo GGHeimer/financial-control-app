@@ -1,20 +1,429 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css?v=1">
+    <!--<link rel="stylesheet" type="text/css" media="all" href="../../css/style.css" th:href="@{/css/style.css}">-->
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>Financial Control App</title>
 </head>
-<body>
+
+<body class="bg-dark">
     <header>
-        <div class="header">Financial Control App</div>
+        <div class="text-light">
+            <h1>Financial Control App</h1>
+        </div>
     </header>
     <main>
-        Main content
+        <article>
+        <section class="ent-desp">
+        <div class="container">
+            <div class="container-t entradas">
+                <table class="table table-light table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-center"><span class="text-success">Entradas</span></th>
+                            <th scope="col"><span class="text-success">Valor</span></th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>OGMO</td>
+                        <td>5000 </td>
+
+                    </tr>
+                    <tr>
+                        <td>Férias e 13°</td>
+                        <td>890,99</td>
+
+                    </tr>
+                    <tr>
+                        <td>Ticket Alimentação</td>
+                        <td>353,79</td>
+
+                    </tr>
+                    <tr>
+                        <td>Rendimento Cofrinhos</td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td>Outros</td>
+                        <td>2638,5</td>
+
+                    </tr>
+                    <tr>
+                        <td>Saldo M-1</td>
+                        <td>11,09</td>
+
+                    </tr>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="container-t despesas-fixas">
+                <table class="table table-light table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-center"><span class="text-danger">Despesas Fixas</span></th>
+                            <th scope="col"><span class="text-danger">Valor</span></th>
+                            <th scope="col" class="text-danger"><span class="text-danger">Status</span></th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Aluguel</td>
+                            <td>400</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkFixed1">
+                                    <label class="form-check-label" for="checkFixed1">
+                                    </label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Plano de Saúde</td>
+                            <td>400</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkFixed2">
+                                    <label class="form-check-label" for="checkFixed2">
+                                    </label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Internet</td>
+                            <td>100</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkFixed3">
+                                    <label class="form-check-label" for="checkFixed3">
+                                    </label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cel Estevão</td>
+                            <td>61</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkFixed4">
+                                    <label class="form-check-label" for="checkFixed4">
+                                    </label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cel Alessandra</td>
+                            <td>48</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkFixed5">
+                                    <label class="form-check-label" for="checkFixed5">
+                                    </label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cel Noemia</td>
+                            <td>38</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkFixed6">
+                                    <label class="form-check-label" for="checkFixed6">
+                                    </label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>MEI</td>
+                            <td>811</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkFixed7">
+                                    <label class="form-check-label" for="checkFixed7">
+                                    </label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>IPTU</td>
+                            <td>36,75</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkFixed8">
+                                    <label class="form-check-label" for="checkFixed8">
+                                    </label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.30z"/></g></svg>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="container-t despesas-variaveis">
+                <table class="table table-light table-hover">
+                    <thead>
+                        <tr>
+
+                            <th scope="col" class="text-center"><span class="text-danger">Despesas Variáveis</span></th>
+                            <th scope="col"><span class="text-danger">Valor</span></th>
+                            <th scope="col" class="text-danger"><span class="text-danger">Status</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cartão PicPay</td>
+                            <td>875,89</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkVar1">
+                                    <label class="form-check-label" for="checkVar1">
+                                    </label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cartão CAIXA</td>
+                            <td>2158,06</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkVar2">
+                                    <label class="form-check-label" for="checkVar2">
+                                    </label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Energia</td>
+                            <td>162,17</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkVar3">
+                                    <label class="form-check-label" for="checkVar3">
+                                    </label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Compras</td>
+                            <td>192,92</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkVar4">
+                                    <label class="form-check-label" for="checkVar4">
+                                    </label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Dízimo M-1</td>
+                            <td>566,4</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkVar5">
+                                    <label class="form-check-label" for="checkVar5">
+                                    </label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Dízimo</td>
+                            <td>406,5</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkVar6">
+                                    <label class="form-check-label" for="checkVar6">
+                                    </label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Oferta</td>
+                            <td>0</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkVar7">
+                                    <label class="form-check-label" for="checkVar7">
+                                    </label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Reserva</td>
+                            <td>13,03</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkVar8">
+                                    <label class="form-check-label" for="checkVar8">
+                                    </label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Luxemburgo</td>
+                            <td>341,17</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkVar9">
+                                    <label class="form-check-label" for="checkVar9">
+                                    </label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Reserva Cartão</td>
+                            <td>684,18</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkVar10">
+                                    <label class="form-check-label" for="checkVar10">
+                                    </label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="container-t vencimento">
+                <table class="table table-light table-hover">
+                <thead>
+                    <th scope="col" class="text-center"><span class="text-warning">Vencimento</span></th>
+                    <th scope="col"><span class="text-warning">Data</span></th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>Cartão Crédito Alessandra</td>
+                    <td>dia 3</td>
+                </tr>
+                <tr>
+                    <td>Cartão de Crédito Estevão</td>
+                    <td>dias 11 e 15</td>
+                </tr>
+                <tr>
+                    <td>Celular Estevão</td>
+                    <td> dia 6</td>
+                </tr>
+                <tr>
+                    <td>Celular Alessandra</td>
+                    <td>dia 6</td>
+                </tr>
+                <tr>
+                    <td>Internet</td>
+                    <td>dia 7</td>
+                </tr>
+                <tr>
+                    <td>Plano de Saúde</td>
+                    <td>dia 10</td>
+                </tr>
+                <tr>
+                    <td>MEI</td>
+                    <td>dia 21</td>
+                </tr>
+            </table>
+            </div>
+        </div>
+        </section>
+        <section class="metas">
+            <h2 class="text-light text-center">Metas</h2>
+            <div class="t-meta">
+                <table class="table table-hover table-light">
+                    <thead><span class="text-light text-center">Reserva</span></thead>
+                    <tr>
+                        <td><span >Meta Reserva</span></td>
+                        <td>1500</td>
+                    </tr>
+                    <tr>
+                        <td><span>Obtido</span></td>
+                        <td>328,14</td>
+                    </tr>
+                    <tr>
+                        <td><span>Sucesso</span></td>
+                        <td>22%</td>
+                    </tr>
+                </table>
+                </div>
+                <div class="t-meta">
+                <table class="table table-hover table-light">
+                    <thead><span class="text-light text-center">Cartão de Crédito</span></thead>
+                    <tr>
+                        <td><span>Meta Cartão</span></td>
+                        <td>1500</td>
+                    </tr>
+                    <tr>
+                        <td><span>gasto</span></td>
+                        <td>3033,95</td>
+                    </tr>
+                    <tr>
+                        <td><span>Sucesso</span></td>
+                        <td>202%</td>
+                    </tr>
+                </table>
+                </div>
+        </section>
+        <section class="emprestimo">
+            <h2 class="text-light text-center">Empréstimos</h2>
+            <div class="t-emprestimo">
+                <table class="table table-hover table-light">
+                    <tr>
+                        <td><span >pendente</span></td>
+                        <td>1547,22</td>
+                    </tr>
+                    <tr>
+                        <td><span>quitado</span></td>
+                        <td>4091,34</td>
+                    </tr>
+                    <tr>
+                        <td><span>inicial</span></td>
+                        <td>5812,92</td>
+                    </tr>
+                    <tr>
+                        <td>efetivo</td>
+                        <td>5638,56</td>
+                    </tr>
+                    <tr>
+                        <td>diferença</td>
+                        <td>174,36</td>
+                    </tr>
+                    <tr>
+                        <td>juros inicial</td>
+                        <td>16,26%</td>
+                    </tr>
+                    <tr>
+                        <td>juros efetivo</td>
+                        <td>12,77%</td>
+                    </tr>
+                </table>
+        </section>
+        </article>
     </main>
-    <footer>
-        All rights reserved - Estevao Tenorio Gegenheimer
+    <footer class="text-light">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M1.25 12C1.25 6.063 6.063 1.25 12 1.25S22.75 6.063 22.75 12S17.937 22.75 12 22.75S1.25 17.937 1.25 12M12 2.75a9.25 9.25 0 1 0 0 18.5a9.25 9.25 0 0 0 0-18.5"/><path d="M12.286 8.75c-2.003 0-3.536 1.503-3.536 3.25s1.533 3.25 3.536 3.25c.511 0 .995-.1 1.43-.277a.75.75 0 0 1 .567 1.389a5.3 5.3 0 0 1-1.997.388c-2.732 0-5.036-2.079-5.036-4.75s2.304-4.75 5.036-4.75a5.3 5.3 0 0 1 1.997.388a.75.75 0 0 1-.566 1.39a3.8 3.8 0 0 0-1.431-.278"/></g></svg> All rights reserved - Estevao Tenorio Gegenheimer
     </footer>
 </body>
+
 </html>
