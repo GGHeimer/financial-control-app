@@ -11,22 +11,23 @@
     <title>Financial Control App</title>
 </head>
 
-<body class="bg-dark">
+<body class="bg-success">
     <header>
-        <div class="text-light">
+        <div class="text-dark">
             <h1>Financial Control App</h1>
         </div>
     </header>
     <main>
         <article>
         <section class="ent-desp">
+            <h2 class="text-light text-center border-bottom p-2">Dashboard</h2>
         <div class="container">
-            <div class="container-t entradas">
-                <table class="table table-light table-hover">
+            <div class="container-t incomings">
+                <table class="table table-secondary table-hover">
                     <thead>
                         <tr>
-                            <th scope="col" class="text-center"><span class="text-success">Entradas</span></th>
-                            <th scope="col"><span class="text-success">Valor</span></th>
+                            <th scope="col" class="text-center"><span class="text-success">Incomings</span></th>
+                            <th scope="col"><span class="text-success">Amount</span></th>
                         </tr>
                     </thead>
                     <tr>
@@ -63,13 +64,17 @@
 
                     </tbody>
                 </table>
+
+        System.out.println() {
+            return getAllIncomings()
+        }
             </div>
-            <div class="container-t despesas-fixas">
-                <table class="table table-light table-hover">
+            <div class="container-t outgings-fixas">
+                <table class="table table-secondary table-hover">
                     <thead>
                         <tr>
-                            <th scope="col" class="text-center"><span class="text-danger">Despesas Fixas</span></th>
-                            <th scope="col"><span class="text-danger">Valor</span></th>
+                            <th scope="col" class="text-center"><span class="text-danger">Fixed Outgoings</span></th>
+                            <th scope="col"><span class="text-danger">Amount</span></th>
                             <th scope="col" class="text-danger"><span class="text-danger">Status</span></th>
                         </tr>
 
@@ -175,13 +180,13 @@
                     </tbody>
                 </table>
             </div>
-            <div class="container-t despesas-variaveis">
-                <table class="table table-light table-hover">
+            <div class="container-t variable-outgoings">
+                <table class="table table-secondary table-hover">
                     <thead>
                         <tr>
 
-                            <th scope="col" class="text-center"><span class="text-danger">Despesas Variáveis</span></th>
-                            <th scope="col"><span class="text-danger">Valor</span></th>
+                            <th scope="col" class="text-center"><span class="text-danger">Variable Outgoings</span></th>
+                            <th scope="col"><span class="text-danger">Amount</span></th>
                             <th scope="col" class="text-danger"><span class="text-danger">Status</span></th>
                         </tr>
                     </thead>
@@ -309,11 +314,11 @@
                     </tbody>
                 </table>
             </div>
-            <div class="container-t vencimento">
-                <table class="table table-light table-hover">
+            <div class="container-t due-date">
+                <table class="table table-secondary table-hover">
                 <thead>
-                    <th scope="col" class="text-center"><span class="text-warning">Vencimento</span></th>
-                    <th scope="col"><span class="text-warning">Data</span></th>
+                    <th scope="col" class="text-center"><span class="text-warning">Due Date</span></th>
+                    <th scope="col"><span class="text-warning">Date</span></th>
                     </tr>
                 </thead>
                 <tr>
@@ -348,47 +353,47 @@
             </div>
         </div>
         </section>
-        <section class="metas">
-            <h2 class="text-light text-center">Metas</h2>
-            <div class="t-meta">
-                <table class="table table-hover table-light">
-                    <thead><span class="text-light text-center">Reserva</span></thead>
+        <section class="goals">
+            <h2 class="text-light text-center border-bottom p-2">Goals</h2>
+            <div class="t-goal">
+                <table class="table table-hover table-secondary">
+                    <thead><span class="text-light text-center">Savings</span></thead>
                     <tr>
-                        <td><span >Meta Reserva</span></td>
+                        <td><span >Savings Goal</span></td>
                         <td>1500</td>
                     </tr>
                     <tr>
-                        <td><span>Obtido</span></td>
+                        <td><span>Saved</span></td>
                         <td>328,14</td>
                     </tr>
                     <tr>
-                        <td><span>Sucesso</span></td>
+                        <td><span>Success</span></td>
                         <td>22%</td>
                     </tr>
                 </table>
                 </div>
-                <div class="t-meta">
-                <table class="table table-hover table-light">
+                <div class="t-goal">
+                <table class="table table-hover table-secondary">
                     <thead><span class="text-light text-center">Cartão de Crédito</span></thead>
                     <tr>
                         <td><span>Meta Cartão</span></td>
                         <td>1500</td>
                     </tr>
                     <tr>
-                        <td><span>gasto</span></td>
+                        <td><span>spent</span></td>
                         <td>3033,95</td>
                     </tr>
                     <tr>
-                        <td><span>Sucesso</span></td>
+                        <td><span>Success</span></td>
                         <td>202%</td>
                     </tr>
                 </table>
                 </div>
         </section>
-        <section class="emprestimo">
-            <h2 class="text-light text-center">Empréstimos</h2>
-            <div class="t-emprestimo">
-                <table class="table table-hover table-light">
+        <section class="loan">
+            <h2 class="text-light text-center border-bottom p-2">Loans</h2>
+            <div class="t-loan">
+                <table class="table table-hover table-secondary">
                     <tr>
                         <td><span >pendente</span></td>
                         <td>1547,22</td>
