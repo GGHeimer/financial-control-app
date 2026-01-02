@@ -1,6 +1,6 @@
 package com.example.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,7 +24,7 @@ public class Incomings {
     private double incAmou;
     
     @Column(name = "inc_date")
-    private Date incDate;
+    private LocalDate incDate;
     
     @Column(name = "inc_tith")
     private boolean incTith;
@@ -38,7 +38,7 @@ public class Incomings {
     // Default constructor
     public Incomings() {}
     
-    public Incomings(Long incId, String incName, double incAmou, Date incDate, boolean incTith, String incCat, Long userId) {
+    public Incomings(Long incId, String incName, double incAmou, LocalDate incDate, boolean incTith, String incCat, Long userId) {
         this.incId = incId;
         this.incName = incName;
         this.incAmou = incAmou;
@@ -56,8 +56,8 @@ public class Incomings {
     public void setIncName(String incName) { this.incName = incName; }
     public double getIncAmou() { return incAmou; }
     public void setIncAmou(double incAmou) { this.incAmou = incAmou; }
-    public Date getIncDate() { return incDate; }
-    public void setIncDate(Date incDate) { this.incDate = incDate; }
+    public LocalDate getIncDate() { return incDate; }
+    public void setIncDate(LocalDate incDate) { this.incDate = incDate; }
     public boolean isIncTith() { return incTith; }
     public void setIncTith(boolean incTith) { this.incTith = incTith; }
     public String getIncCat() { return incCat; }

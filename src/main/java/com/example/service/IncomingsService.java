@@ -18,7 +18,10 @@ public class IncomingsService {
         return incomingsRepository.findAll();
     }
 
-    public Incomings setIncomings(Incomings incomings) {
+    public Incomings saveIncomings(Incomings incomings) {
+        if (incomings.getIncCat().equals("salary")){
+            incomings.setIncTith(true);
+        }
         return incomingsRepository.save(incomings);
     }
 }

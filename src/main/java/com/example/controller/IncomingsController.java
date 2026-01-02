@@ -18,4 +18,5 @@ public class IncomingsController {
         model.addAttribute("incomings", incomingsService.getAllIncomings());
         return "index";
     }
+    
 }

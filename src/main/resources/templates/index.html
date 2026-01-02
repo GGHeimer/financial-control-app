@@ -14,315 +14,152 @@
 <body class="bg-success">
     <header>
         <div class="text-dark">
-            <h1>Financial Control App</h1>
+            <h1 class="text-center">Financial Control App</h1>
         </div>
     </header>
     <main>
         <article>
-        <section class="ent-desp">
-        <div class="container">
-            <div class="container-t incomings">
-                <h2>Incomnigs List</h2>
-                <table class="table table-secondary table-hover">
-                    <thead>
+            <section class="ent-desp">
+                <div class="container">
+                    <div class="incomings">
+                        <h2 class="text-center">Incomnigs</h2>
+                        <table class="table table-secondary table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="text-center"><span class="text-success">ID</span></th>
+                                    <th scope="col"><span class="text-success">Description</span></th>
+                                    <th scope="col"><span class="text-success">Amount (R$)</span></th>
+                                    <th scope="col"><span class="text-success">Date</span></th>
+                                    <th scope="col"><span class="text-success">Category</span></th>
+                                    <th scope="col"><span class="text-success">User</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="incoming : ${incomings}">
+                                    <td th:text="${incoming.incId}"></td>
+                                    <td th:text="${incoming.incName}"></td>
+                                    <td th:text="${incoming.incAmou}"></td>
+                                    <td th:text="${incoming.incDate}"></td>
+                                    <td th:text="${incoming.incCat}"></td>
+                                    <td th:text="${incoming.userId}"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a href="add-incoming.html" th:href = "@{/add-incoming}"><button type="button" class="btn btn-primary"><i class="bi bi-plus-square">+</i></button></a>
+                    </div>
+                    <div class="outgings">
+                        <h2 class="text-center">Outgoings</h2>
+                        <table class="table table-secondary table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="text-center"><span class="text-success">ID</span></th>
+                                    <th scope="col"><span class="text-success">Description</span></th>
+                                    <th scope="col"><span class="text-success">Amount (R$)</span></th>
+                                    <th scope="col"><span class="text-success">Due Date</span></th>
+                                    <th scope="col"><span class="text-success">Date</span></th>
+                                    <th scope="col"><span class="text-success">Category</span></th>
+                                    <th scope="col"><span class="text-success">User</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="outgoing : ${outgoings}">
+                                    <td th:text="${outgoing.outId}"></td>
+                                    <td th:text="${outgoing.outName}"></td>
+                                    <td th:text="${outgoing.outAmou}"></td>
+                                    <td th:text="${outgoing.outDueDate}"></td>
+                                    <td th:text="${outgoing.outDate}"></td>
+                                    <td th:text="${outgoing.outCat}"></td>
+                                    <td th:text="${outgoing.userId}"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a href="add-incoming.html" th:href = "@{/add-incoming}"><button type="button" class="btn btn-primary"><i class="bi bi-plus-square">+</i></button></a>
+                    </div>
+            </section>
+            <section class="goals">
+                <h2 class="text-light text-center border-bottom p-2">Goals</h2>
+                <div class="container t-goal">
+                    <table class="table table-hover table-secondary">
+                        <thead><span class="text-light text-center">Savings</span></thead>
                         <tr>
-                            <th scope="col" class="text-center"><span class="text-success">ID</span></th>
-                            <th scope="col"><span class="text-success">Description</span></th>
-                            <th scope="col"><span class="text-success">Amount (R$)</span></th>
-                            <th scope="col"><span class="text-success">Date</span></th>
-                            <th scope="col"><span class="text-success">Category</span></th>
-                            <th scope="col"><span class="text-success">User</span></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="incoming : ${incomings}">
-                            <td th:text="${incoming.incId}"></td>
-                            <td th:text="${incoming.incName}"></td>
-                            <td th:text="${incoming.incAmou}"></td>
-                            <td th:text="${incoming.incDate}"></td>
-                            <td th:text="${incoming.incCat}"></td>
-                            <td th:text="${incoming.userId}"></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-            <div class="container-t outgings-fixas">
-                <h2>Recurrent Outgoings</h2>
-                <table class="table table-secondary table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col" class="text-center"><span class="text-success">ID</span></th>
-                            <th scope="col"><span class="text-success">Description</span></th>
-                            <th scope="col"><span class="text-success">Amount (R$)</span></th>
-                            <th scope="col"><span class="text-success">Due Date</span></th>
-                            <th scope="col"><span class="text-success">Date</span></th>
-                            <th scope="col"><span class="text-success">Category</span></th>
-                            <th scope="col"><span class="text-success">User</span></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="outgoing : ${outgoings}">
-                            <td th:text="${outgoing.outId}"></td>
-                            <td th:text="${outgoing.outName}"></td>
-                            <td th:text="${outgoing.outAmou}"></td>
-                            <td th:text="${outgoing.outDueDate}"></td>
-                            <td th:text="${outgoing.outDate}"></td>
-                            <td th:text="${outgoing.outCat}"></td>
-                            <td th:text="${outgoing.userId}"></td>
-                        </tr>
-                    </tbody>
-                
-                </table>
-            </div>
-            <div class="container-t variable-outgoings">
-                <table class="table table-secondary table-hover">
-                    <thead>
-                        <tr>
-
-                            <th scope="col" class="text-center"><span class="text-danger">Variable Outgoings</span></th>
-                            <th scope="col"><span class="text-danger">Amount</span></th>
-                            <th scope="col" class="text-danger"><span class="text-danger">Status</span></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Cartão PicPay</td>
-                            <td>875,89</td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkVar1">
-                                    <label class="form-check-label" for="checkVar1">
-                                    </label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
-                                </div>
-                            </td>
+                            <td><span>Savings Goal</span></td>
+                            <td>1500</td>
                         </tr>
                         <tr>
-                            <td>Cartão CAIXA</td>
-                            <td>2158,06</td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkVar2">
-                                    <label class="form-check-label" for="checkVar2">
-                                    </label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
-                                </div>
-                            </td>
+                            <td><span>Saved</span></td>
+                            <td>328,14</td>
                         </tr>
                         <tr>
-                            <td>Energia</td>
-                            <td>162,17</td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkVar3">
-                                    <label class="form-check-label" for="checkVar3">
-                                    </label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
-                                </div>
-                            </td>
+                            <td><span>Success</span></td>
+                            <td>22%</td>
                         </tr>
-                        <tr>
-                            <td>Compras</td>
-                            <td>192,92</td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkVar4">
-                                    <label class="form-check-label" for="checkVar4">
-                                    </label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Dízimo M-1</td>
-                            <td>566,4</td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkVar5">
-                                    <label class="form-check-label" for="checkVar5">
-                                    </label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Dízimo</td>
-                            <td>406,5</td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkVar6">
-                                    <label class="form-check-label" for="checkVar6">
-                                    </label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Oferta</td>
-                            <td>0</td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkVar7">
-                                    <label class="form-check-label" for="checkVar7">
-                                    </label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Reserva</td>
-                            <td>13,03</td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkVar8">
-                                    <label class="form-check-label" for="checkVar8">
-                                    </label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Luxemburgo</td>
-                            <td>341,17</td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkVar9">
-                                    <label class="form-check-label" for="checkVar9">
-                                    </label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Reserva Cartão</td>
-                            <td>684,18</td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkVar10">
-                                    <label class="form-check-label" for="checkVar10">
-                                    </label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="container-t due-date">
-                <table class="table table-secondary table-hover">
-                <thead>
-                    <th scope="col" class="text-center"><span class="text-warning">Due Date</span></th>
-                    <th scope="col"><span class="text-warning">Date</span></th>
-                    </tr>
-                </thead>
-                <tr>
-                    <td>Cartão Crédito Alessandra</td>
-                    <td>dia 3</td>
-                </tr>
-                <tr>
-                    <td>Cartão de Crédito Estevão</td>
-                    <td>dias 11 e 15</td>
-                </tr>
-                <tr>
-                    <td>Celular Estevão</td>
-                    <td> dia 6</td>
-                </tr>
-                <tr>
-                    <td>Celular Alessandra</td>
-                    <td>dia 6</td>
-                </tr>
-                <tr>
-                    <td>Internet</td>
-                    <td>dia 7</td>
-                </tr>
-                <tr>
-                    <td>Plano de Saúde</td>
-                    <td>dia 10</td>
-                </tr>
-                <tr>
-                    <td>MEI</td>
-                    <td>dia 21</td>
-                </tr>
-            </table>
-            </div>
-        </div>
-        </section>
-        <section class="goals">
-            <h2 class="text-light text-center border-bottom p-2">Goals</h2>
-            <div class="t-goal">
-                <table class="table table-hover table-secondary">
-                    <thead><span class="text-light text-center">Savings</span></thead>
-                    <tr>
-                        <td><span >Savings Goal</span></td>
-                        <td>1500</td>
-                    </tr>
-                    <tr>
-                        <td><span>Saved</span></td>
-                        <td>328,14</td>
-                    </tr>
-                    <tr>
-                        <td><span>Success</span></td>
-                        <td>22%</td>
-                    </tr>
-                </table>
+                    </table>
                 </div>
-                <div class="t-goal">
-                <table class="table table-hover table-secondary">
-                    <thead><span class="text-light text-center">Cartão de Crédito</span></thead>
-                    <tr>
-                        <td><span>Meta Cartão</span></td>
-                        <td>1500</td>
-                    </tr>
-                    <tr>
-                        <td><span>spent</span></td>
-                        <td>3033,95</td>
-                    </tr>
-                    <tr>
-                        <td><span>Success</span></td>
-                        <td>202%</td>
-                    </tr>
-                </table>
+                <div class=" container t-goal">
+                    <table class="table table-hover table-secondary">
+                        <thead><span class="text-light text-center">Cartão de Crédito</span></thead>
+                        <tr>
+                            <td><span>Meta Cartão</span></td>
+                            <td>1500</td>
+                        </tr>
+                        <tr>
+                            <td><span>spent</span></td>
+                            <td>3033,95</td>
+                        </tr>
+                        <tr>
+                            <td><span>Success</span></td>
+                            <td>202%</td>
+                        </tr>
+                    </table>
                 </div>
-        </section>
-        <section class="loan">
-            <h2 class="text-light text-center border-bottom p-2">Loans</h2>
-            <div class="t-loan">
-                <table class="table table-hover table-secondary">
-                    <tr>
-                        <td><span >pendente</span></td>
-                        <td>1547,22</td>
-                    </tr>
-                    <tr>
-                        <td><span>quitado</span></td>
-                        <td>4091,34</td>
-                    </tr>
-                    <tr>
-                        <td><span>inicial</span></td>
-                        <td>5812,92</td>
-                    </tr>
-                    <tr>
-                        <td>efetivo</td>
-                        <td>5638,56</td>
-                    </tr>
-                    <tr>
-                        <td>diferença</td>
-                        <td>174,36</td>
-                    </tr>
-                    <tr>
-                        <td>juros inicial</td>
-                        <td>16,26%</td>
-                    </tr>
-                    <tr>
-                        <td>juros efetivo</td>
-                        <td>12,77%</td>
-                    </tr>
-                </table>
-        </section>
+            </section>
+            <section class="loan">
+                <div class="container">
+                    <h2 class="text-light text-center border-bottom p-2">Loans</h2>
+                    <div class="t-loan">
+                        <table class="table table-hover table-secondary">
+                            <tr>
+                                <td><span>pendente</span></td>
+                                <td>1547,22</td>
+                            </tr>
+                            <tr>
+                                <td><span>quitado</span></td>
+                                <td>4091,34</td>
+                            </tr>
+                            <tr>
+                                <td><span>inicial</span></td>
+                                <td>5812,92</td>
+                            </tr>
+                            <tr>
+                                <td>efetivo</td>
+                                <td>5638,56</td>
+                            </tr>
+                            <tr>
+                                <td>diferença</td>
+                                <td>174,36</td>
+                            </tr>
+                            <tr>
+                                <td>juros inicial</td>
+                                <td>16,26%</td>
+                            </tr>
+                            <tr>
+                                <td>juros efetivo</td>
+                                <td>12,77%</td>
+                            </tr>
+                        </table>
+                    </div>
+            </section>
         </article>
     </main>
     <footer class="text-light">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M1.25 12C1.25 6.063 6.063 1.25 12 1.25S22.75 6.063 22.75 12S17.937 22.75 12 22.75S1.25 17.937 1.25 12M12 2.75a9.25 9.25 0 1 0 0 18.5a9.25 9.25 0 0 0 0-18.5"/><path d="M12.286 8.75c-2.003 0-3.536 1.503-3.536 3.25s1.533 3.25 3.536 3.25c.511 0 .995-.1 1.43-.277a.75.75 0 0 1 .567 1.389a5.3 5.3 0 0 1-1.997.388c-2.732 0-5.036-2.079-5.036-4.75s2.304-4.75 5.036-4.75a5.3 5.3 0 0 1 1.997.388a.75.75 0 0 1-.566 1.39a3.8 3.8 0 0 0-1.431-.278"/></g></svg> All rights reserved - Estevao Tenorio Gegenheimer
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+                <path
+                    d="M1.25 12C1.25 6.063 6.063 1.25 12 1.25S22.75 6.063 22.75 12S17.937 22.75 12 22.75S1.25 17.937 1.25 12M12 2.75a9.25 9.25 0 1 0 0 18.5a9.25 9.25 0 0 0 0-18.5" />
+                <path
+                    d="M12.286 8.75c-2.003 0-3.536 1.503-3.536 3.25s1.533 3.25 3.536 3.25c.511 0 .995-.1 1.43-.277a.75.75 0 0 1 .567 1.389a5.3 5.3 0 0 1-1.997.388c-2.732 0-5.036-2.079-5.036-4.75s2.304-4.75 5.036-4.75a5.3 5.3 0 0 1 1.997.388a.75.75 0 0 1-.566 1.39a3.8 3.8 0 0 0-1.431-.278" />
+            </g>
+        </svg> All rights reserved - Estevao Tenorio Gegenheimer
     </footer>
 </body>
 
