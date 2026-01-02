@@ -20,164 +20,59 @@
     <main>
         <article>
         <section class="ent-desp">
-            <h2 class="text-light text-center border-bottom p-2">Dashboard</h2>
         <div class="container">
             <div class="container-t incomings">
+                <h2>Incomnigs List</h2>
                 <table class="table table-secondary table-hover">
                     <thead>
                         <tr>
-                            <th scope="col" class="text-center"><span class="text-success">Incomings</span></th>
-                            <th scope="col"><span class="text-success">Amount</span></th>
+                            <th scope="col" class="text-center"><span class="text-success">ID</span></th>
+                            <th scope="col"><span class="text-success">Description</span></th>
+                            <th scope="col"><span class="text-success">Amount (R$)</span></th>
+                            <th scope="col"><span class="text-success">Date</span></th>
+                            <th scope="col"><span class="text-success">Category</span></th>
+                            <th scope="col"><span class="text-success">User</span></th>
                         </tr>
                     </thead>
-                    <tr>
-                        <td>OGMO</td>
-                        <td>5000 </td>
-
-                    </tr>
-                    <tr>
-                        <td>Férias e 13°</td>
-                        <td>890,99</td>
-
-                    </tr>
-                    <tr>
-                        <td>Ticket Alimentação</td>
-                        <td>353,79</td>
-
-                    </tr>
-                    <tr>
-                        <td>Rendimento Cofrinhos</td>
-                        <td></td>
-
-                    </tr>
-                    <tr>
-                        <td>Outros</td>
-                        <td>2638,5</td>
-
-                    </tr>
-                    <tr>
-                        <td>Saldo M-1</td>
-                        <td>11,09</td>
-
-                    </tr>
                     <tbody>
-
+                        <tr th:each="incoming : ${incomings}">
+                            <td th:text="${incoming.incId}"></td>
+                            <td th:text="${incoming.incName}"></td>
+                            <td th:text="${incoming.incAmou}"></td>
+                            <td th:text="${incoming.incDate}"></td>
+                            <td th:text="${incoming.incCat}"></td>
+                            <td th:text="${incoming.userId}"></td>
+                        </tr>
                     </tbody>
                 </table>
 
-        System.out.println() {
-            return getAllIncomings()
-        }
             </div>
             <div class="container-t outgings-fixas">
+                <h2>Recurrent Outgoings</h2>
                 <table class="table table-secondary table-hover">
                     <thead>
                         <tr>
-                            <th scope="col" class="text-center"><span class="text-danger">Fixed Outgoings</span></th>
-                            <th scope="col"><span class="text-danger">Amount</span></th>
-                            <th scope="col" class="text-danger"><span class="text-danger">Status</span></th>
+                            <th scope="col" class="text-center"><span class="text-success">ID</span></th>
+                            <th scope="col"><span class="text-success">Description</span></th>
+                            <th scope="col"><span class="text-success">Amount (R$)</span></th>
+                            <th scope="col"><span class="text-success">Due Date</span></th>
+                            <th scope="col"><span class="text-success">Date</span></th>
+                            <th scope="col"><span class="text-success">Category</span></th>
+                            <th scope="col"><span class="text-success">User</span></th>
                         </tr>
-
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Aluguel</td>
-                            <td>400</td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkFixed1">
-                                    <label class="form-check-label" for="checkFixed1">
-                                    </label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
-                                </div>
-                                
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Plano de Saúde</td>
-                            <td>400</td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkFixed2">
-                                    <label class="form-check-label" for="checkFixed2">
-                                    </label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Internet</td>
-                            <td>100</td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkFixed3">
-                                    <label class="form-check-label" for="checkFixed3">
-                                    </label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Cel Estevão</td>
-                            <td>61</td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkFixed4">
-                                    <label class="form-check-label" for="checkFixed4">
-                                    </label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Cel Alessandra</td>
-                            <td>48</td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkFixed5">
-                                    <label class="form-check-label" for="checkFixed5">
-                                    </label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Cel Noemia</td>
-                            <td>38</td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkFixed6">
-                                    <label class="form-check-label" for="checkFixed6">
-                                    </label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>MEI</td>
-                            <td>811</td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkFixed7">
-                                    <label class="form-check-label" for="checkFixed7">
-                                    </label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.53z"/></g></svg>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>IPTU</td>
-                            <td>36,75</td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkFixed8">
-                                    <label class="form-check-label" for="checkFixed8">
-                                    </label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.944 11.79a.5.5 0 0 1 .141-.277L14.163 1.435a.5.5 0 0 1 .707 0l3.89 3.89a.5.5 0 0 1 0 .706L8.68 16.11a.5.5 0 0 1-.277.14l-4.595.706a.5.5 0 0 1-.57-.57zm.964.314l-.577 3.76l3.759-.578l9.609-9.608l-3.183-3.182z"/><path d="m15.472 8.173l-3.537-3.53l.707-.708l3.536 3.30z"/></g></svg>
-                                </div>
-                            </td>
+                        <tr th:each="outgoing : ${outgoings}">
+                            <td th:text="${outgoing.outId}"></td>
+                            <td th:text="${outgoing.outName}"></td>
+                            <td th:text="${outgoing.outAmou}"></td>
+                            <td th:text="${outgoing.outDueDate}"></td>
+                            <td th:text="${outgoing.outDate}"></td>
+                            <td th:text="${outgoing.outCat}"></td>
+                            <td th:text="${outgoing.userId}"></td>
                         </tr>
                     </tbody>
+                
                 </table>
             </div>
             <div class="container-t variable-outgoings">

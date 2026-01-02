@@ -6,20 +6,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.service.IncomingsService;
-import com.example.service.OutgoingsService;
 
 @Controller
-public class AppController {
+public class IncomingsController {
     
     @Autowired
     private IncomingsService incomingsService;
-    @Autowired
-    private OutgoingsService outgoingsService;
     
-    @GetMapping("/")
-    public String listAllIncOut(Model model) {
+    @GetMapping("/incomings")
+    public String listAllIncomings(Model model) {
         model.addAttribute("incomings", incomingsService.getAllIncomings());
-         model.addAttribute("outgoings", outgoingsService.getAllOutgoings());
         return "index";
     }
 }

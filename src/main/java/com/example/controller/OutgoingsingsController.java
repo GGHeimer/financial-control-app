@@ -5,21 +5,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.example.service.IncomingsService;
 import com.example.service.OutgoingsService;
-
-@Controller
-public class AppController {
     
-    @Autowired
-    private IncomingsService incomingsService;
+@Controller
+public class OutgoingsingsController {
+    
     @Autowired
     private OutgoingsService outgoingsService;
     
-    @GetMapping("/")
-    public String listAllIncOut(Model model) {
-        model.addAttribute("incomings", incomingsService.getAllIncomings());
-         model.addAttribute("outgoings", outgoingsService.getAllOutgoings());
+    @GetMapping("/outgoings")
+    public String listAllIncomings(Model model) {
+        model.addAttribute("outgoings", outgoingsService.getAllOutgoings());
         return "index";
     }
 }
+

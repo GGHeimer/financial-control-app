@@ -1,10 +1,12 @@
 package com.example.service;
 
-import com.example.model.Incomings;
-import com.example.repositories.IncomingsRepository;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.List;
+
+import com.example.model.Incomings;
+import com.example.repositories.IncomingsRepository;
 
 @Service
 public class IncomingsService {
