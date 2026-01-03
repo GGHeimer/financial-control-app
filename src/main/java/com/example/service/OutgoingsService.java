@@ -17,7 +17,7 @@ public class OutgoingsService {
         return outgoingsRepository.findAll();
     }
 
-    public Outgoings setOutgoings(Outgoings outgoings) {
+    public Outgoings saveOutgoings(Outgoings outgoings) {
         return outgoingsRepository.save(outgoings);
     }
 }

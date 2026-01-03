@@ -1,6 +1,6 @@
 package com.example.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,14 +31,14 @@ public class Outgoings {
     @Column (name = "out_cat")
     private String outCat;
     @Column (name = "out_date")
-    private Date outDate;
+    private LocalDate outDate;
     
     // Default constructor
     public Outgoings() {}
     
     // Constructor
     public Outgoings(Long outId, Long userId, String outName, double outAmou, String outDueDate, int outStatUs,
-                String outCat, Date outDate) {
+                String outCat, LocalDate outDate) {
             this.outId = outId;
             this.userId = userId;
             this.outName = outName;
@@ -64,6 +64,6 @@ public class Outgoings {
     public void setOutStatUs(int outStatUs) { this.outStatUs = outStatUs; }
     public String getOutCat() { return outCat; }
     public void setOutCat(String outCat) { this.outCat = outCat; }
-    public Date getOutDate() { return outDate; }
-    public void setOutDate(Date outDate) { this.outDate = outDate; }
+    public LocalDate getOutDate() { return outDate; }
+    public void setOutDate(LocalDate outDate) { this.outDate = outDate; }
 }

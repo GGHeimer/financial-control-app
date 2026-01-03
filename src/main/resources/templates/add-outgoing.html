@@ -19,11 +19,11 @@
     </header>
     <main>
         <article>
-            <section class="add-incoming">
+            <section class="add-outgoing">
                 <div class="container">
-                    <div class="incomings">
-                        <h2 class="text-center">Add Incomnigs</h2>
-                        <form th:action="@{/add-incoming}" th:object="${incoming}" method="post">
+                    <div class="outgoings">
+                        <h2 class="text-center">Add Outgoing</h2>
+                        <form th:action="@{/add-outgoing}" th:object="${outgoing}" method="post">
                             <fieldset>
                                 <label for="incName">Description</label><br>
                                 <input type="text" th:field="*{incName}" required /><br>
@@ -32,9 +32,7 @@
                                 <label for="incDate">Date</label><br>
                                 <input type="date" th:field="*{incDate}" required /><br>
                                 <label for="incCat">Category</label><br>
-                                <input type="text" th:field="*{incCat}" required />
-                                <input class="form-check-input" type="checkbox" value="1" id="checkDefault" th:field="*{incTith}">
-                                <label class="form-check-label" for="incTith">Tithable</label><br>
+                                <input type="text" th:field="*{incCat}" required /><br>
                                 <label for="userId">User ID</label><br>
                                 <input type="number" th:field="*{userId}" required /><br>
                                 <input type="submit" value="Add" class="btn btn-primary mt-3" />

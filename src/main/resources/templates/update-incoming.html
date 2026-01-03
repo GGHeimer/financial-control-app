@@ -19,11 +19,12 @@
     </header>
     <main>
         <article>
-            <section class="add-incoming">
+            <section class="update-incoming">
                 <div class="container">
                     <div class="incomings">
-                        <h2 class="text-center">Add Incomnigs</h2>
-                        <form th:action="@{/add-incoming}" th:object="${incoming}" method="post">
+                        <h2 class="text-center">Update Incoming</h2>
+                        <form th:action="@{/update-incoming}" th:object="${incoming}" method="post">
+                            <input type="hidden" th:field="*{incId}" />
                             <fieldset>
                                 <label for="incName">Description</label><br>
                                 <input type="text" th:field="*{incName}" required /><br>
@@ -32,12 +33,12 @@
                                 <label for="incDate">Date</label><br>
                                 <input type="date" th:field="*{incDate}" required /><br>
                                 <label for="incCat">Category</label><br>
-                                <input type="text" th:field="*{incCat}" required />
+                                <input type="text" th:field="*{incCat}" required /><br>
                                 <input class="form-check-input" type="checkbox" value="1" id="checkDefault" th:field="*{incTith}">
                                 <label class="form-check-label" for="incTith">Tithable</label><br>
                                 <label for="userId">User ID</label><br>
                                 <input type="number" th:field="*{userId}" required /><br>
-                                <input type="submit" value="Add" class="btn btn-primary mt-3" />
+                                <input type="submit" value="Update" class="btn btn-primary mt-3" />
                                 <a href="./index.html" th:href="@{/}"><button type="button" class="btn btn-secondary mt-3 ms-5"><span>Cancel</span></button></a>
                             </fieldset>
                         </form>
