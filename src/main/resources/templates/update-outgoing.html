@@ -19,11 +19,12 @@
     </header>
     <main>
         <article>
-            <section class="add-outgoing">
+            <section class="update-outgoing">
                 <div class="container">
                     <div class="outgoings">
-                        <h2 class="text-center">Add Outgoing</h2>
-                        <form th:action="@{/add-outgoing}" th:object="${outgoing}" method="post">
+                        <h2 class="text-center">Update outgoing</h2>
+                        <form th:action="@{/update-outgoing}" th:object="${outgoing}" method="post">
+                            <input type="hidden" th:field="*{outId}" />
                             <fieldset>
                                 <label for="outName">Description</label><br>
                                 <input type="text" th:field="*{outName}" required /><br>
@@ -35,11 +36,11 @@
                                 <input type="date" th:field="*{outDate}" required /><br>
                                 <label for="outCat">Category</label><br>
                                 <input type="text" th:field="*{outCat}" required /><br>
+                                <input class="form-check-input" type="checkbox" id="checkDefault" th:field="*{outStatus}">
+                                <label class="form-check-label" for="outTith">Paid</label><br>
                                 <label for="userId">User ID</label><br>
                                 <input type="number" th:field="*{userId}" required /><br>
-                                <input class="form-check-input" type="checkbox" id="checkDefault" th:field="*{outStatus}">
-                                <label class="form-check-label" for="outStatus">Paid</label><br>
-                                <input type="submit" value="Add" class="btn btn-primary mt-3" />
+                                <input type="submit" value="Update" class="btn btn-primary mt-3" />
                                 <a href="./index.html" th:href="@{/}"><button type="button" class="btn btn-secondary mt-3 ms-5"><span>Cancel</span></button></a>
                             </fieldset>
                         </form>

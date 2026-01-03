@@ -1,4 +1,4 @@
-body{
+body {
     background-color: bisque;
     display: flex;
     flex-direction: column;
@@ -6,19 +6,25 @@ body{
     flex-grow: 1;
 }
 
-header{
+header {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-main{
+main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     flex-grow: 1;
-    height: 100vh;
+    height: fit-content;
     padding: 10px;
+}
+
+.inc-out {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .container {
@@ -27,20 +33,51 @@ main{
     flex-wrap: wrap;
 }
 
-.incomings{
+.table-scrollable {
+    overflow-y: auto;
+    display: block;
+    max-height: 400px;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.incomings {
     padding: 10px;
 }
 
-.outgoings{
+.outgoings {
     padding: 10px;
+}
+
+.goal-loan {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.goals {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .t-goal {
     display: inline-flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
-    width: 50vh;
     padding: 10px;
+}
+
+.loans {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .t-loan {
@@ -55,7 +92,11 @@ span {
     text-transform: uppercase;
 }
 
-footer{
+label {
+    margin-top: 2px;
+}
+
+footer {
     display: flex;
     justify-content: center;
     align-items: center;

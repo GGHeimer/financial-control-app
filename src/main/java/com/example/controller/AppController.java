@@ -46,14 +46,8 @@ public class AppController {
         return "add-outgoing";
     }
 
-    @RequestMapping(value="/add-outgoing", method=RequestMethod.POST)
-    public String saveOutgoings(Outgoings outgoings) {
-        outgoingsService.saveOutgoings(outgoings);
-        return "redirect:/";
-    }
 
-
-    @RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
+    @RequestMapping(value="/incoming/delete/{id}", method=RequestMethod.GET)
     public String deleteIncomingByIda(@PathVariable Long id) {
         incomingsService.deleteIncomingById(id);
         return "redirect:/";
@@ -69,6 +63,31 @@ public class AppController {
     @RequestMapping(value="/update-incoming", method=RequestMethod.POST)
     public String updateIncoming(Incomings incoming) {
         incomingsService.saveIncomings(incoming);
+        return "redirect:/";
+    }
+    
+     @RequestMapping(value="/add-outgoing", method=RequestMethod.POST)
+    public String saveOutgoings(Outgoings outgoings) {
+        outgoingsService.saveOutgoings(outgoings);
+        return "redirect:/";
+    }
+
+    @RequestMapping(value="/outgoing/delete/{id}", method=RequestMethod.GET)
+    public String deleteOutgoingById(@PathVariable Long id) {
+        outgoingsService.deleteOutgoingById(id);
+        return "redirect:/";
+    }
+
+    @RequestMapping(value="/update-outgoing/{id}", method=RequestMethod.GET)
+    public String showUpdateOutgoingForm(@PathVariable Long id, Model model) {
+        Outgoings outgoing = outgoingsService.getOutgoingById(id);
+        model.addAttribute("outgoing", outgoing);
+        return "update-outgoing";
+    }
+
+    @RequestMapping(value="/update-outgoing", method=RequestMethod.POST)
+    public String updateOutgoing(Outgoings outgoing) {
+        outgoingsService.saveOutgoings(outgoing);
         return "redirect:/";
     }
     

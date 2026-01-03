@@ -20,29 +20,25 @@
     <main>
         <article>
             <section class="inc-out">
-                <div class="container">
+                <div class="inc-out">
                     <div class="incomings">
                         <h2 class="text-center">Incomnigs</h2>
-                        <table class="table table-secondary table-hover">
+                        <table class="table table-secondary table-hover table-scrollable">
                             <thead>
                                 <tr>
-                                    <th scope="col" class="text-center"><span class="text-success">ID</span></th>
                                     <th scope="col"><span class="text-success">Description</span></th>
                                     <th scope="col"><span class="text-success">Amount (R$)</span></th>
                                     <th scope="col"><span class="text-success">Date</span></th>
                                     <th scope="col"><span class="text-success">Category</span></th>
-                                    <th scope="col"><span class="text-success">User</span></th>
                                     <th scope="col"><span class="text-success">Action</span></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr th:each="incoming : ${incomings}">
-                                    <td th:text="${incoming.incId}"></td>
                                     <td th:text="${incoming.incName}"></td>
                                     <td th:text="${incoming.incAmou}"></td>
                                     <td th:text="${incoming.incDate}"></td>
                                     <td th:text="${incoming.incCat}"></td>
-                                    <td th:text="${incoming.userId}"></td>
                                     <td>
                                         <a th:href="@{/update-incoming/{id}(id=${incoming.incId})}"> <button
                                                 class="btn btn-hover"><svg xmlns="http://www.w3.org/2000/svg" width="16"
@@ -51,7 +47,7 @@
                                                     <path
                                                         d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
                                                 </svg></button></a>
-                                        <a th:href="@{/delete/{id}(id=${incoming.incId})}">
+                                        <a th:href="@{/incoming/delete/{id}(id=${incoming.incId})}">
                                             <button class="btn btn-hover"><svg xmlns="http://www.w3.org/2000/svg"
                                                     width="16" height="16" fill="currentColor" class="bi bi-trash-fill"
                                                     viewBox="0 0 16 16">
@@ -68,74 +64,94 @@
                     </div>
                     <div class="outgoings">
                         <h2 class="text-center">Outgoings</h2>
-                        <table class="table table-secondary table-hover">
+                        <table class="table table-secondary table-hover table-scrollable">
                             <thead>
                                 <tr>
-                                    <th scope="col" class="text-center"><span class="text-success">ID</span></th>
                                     <th scope="col"><span class="text-success">Description</span></th>
                                     <th scope="col"><span class="text-success">Amount (R$)</span></th>
                                     <th scope="col"><span class="text-success">Due Date</span></th>
                                     <th scope="col"><span class="text-success">Date</span></th>
                                     <th scope="col"><span class="text-success">Category</span></th>
-                                    <th scope="col"><span class="text-success">User</span></th>
+                                    <th scope="col"><span class="text-success">Action</span></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr th:each="outgoing : ${outgoings}">
-                                    <td th:text="${outgoing.outId}"></td>
                                     <td th:text="${outgoing.outName}"></td>
                                     <td th:text="${outgoing.outAmou}"></td>
                                     <td th:text="${outgoing.outDueDate}"></td>
                                     <td th:text="${outgoing.outDate}"></td>
                                     <td th:text="${outgoing.outCat}"></td>
-                                    <td th:text="${outgoing.userId}"></td>
+                                    <td>
+                                        <a th:href="@{/update-outgoing/{id}(id=${outgoing.outId})}"> <button
+                                                class="btn btn-hover"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                    height="16" fill="currentColor" class="bi bi-pencil"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
+                                                </svg></button></a>
+                                        <a th:href="@{/outgoing/delete/{id}(id=${outgoing.outId})}">
+                                            <button class="btn btn-hover"><svg xmlns="http://www.w3.org/2000/svg"
+                                                    width="16" height="16" fill="currentColor" class="bi bi-trash-fill"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
+                                                </svg></button></a>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
-                        <a href="add-outgoings.html" th:href="@{/add-outgoing}"><button type="button"
+                        <a href="add-outgoing.html" th:href="@{/add-outgoing}"><button type="button"
                                 class="btn btn-primary"><i class="bi bi-plus-square">+</i></button></a>
                     </div>
             </section>
-            <section class="goals">
-                <h2 class="text-light text-center border-bottom p-2">Goals</h2>
-                <div class="container t-goal">
-                    <table class="table table-hover table-secondary">
-                        <thead><span class="text-light text-center">Savings</span></thead>
-                        <tr>
-                            <td><span>Savings Goal</span></td>
-                            <td>1500</td>
-                        </tr>
-                        <tr>
-                            <td><span>Saved</span></td>
-                            <td>328,14</td>
-                        </tr>
-                        <tr>
-                            <td><span>Success</span></td>
-                            <td>22%</td>
-                        </tr>
-                    </table>
+            <section class="goal-loan">
+                <div class="goals">
+                    <div>
+                    <h2 class="text-light text-center border-bottom p-2">Goals</h2>
+                    </div>
+                    <div class="t-goal">
+                    <div>
+                        <table class="table table-hover table-secondary">
+                            <thead><span class="text-light text-center">Savings</span></thead>
+                            <tr>
+                                <td><span>Savings Goal</span></td>
+                                <td>1500</td>
+                            </tr>
+                            <tr>
+                                <td><span>Saved</span></td>
+                                <td>328,14</td>
+                            </tr>
+                            <tr>
+                                <td><span>Success</span></td>
+                                <td>22%</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <table class="table table-hover table-secondary">
+                            <thead><span class="text-light text-center">Cartão de Crédito</span></thead>
+                            <tr>
+                                <td><span>Meta Cartão</span></td>
+                                <td>1500</td>
+                            </tr>
+                            <tr>
+                                <td><span>spent</span></td>
+                                <td>3033,95</td>
+                            </tr>
+                            <tr>
+                                <td><span>Success</span></td>
+                                <td>202%</td>
+                            </tr>
+                        </table>
+                    </div>
+                    </div>
                 </div>
-                <div class=" container t-goal">
-                    <table class="table table-hover table-secondary">
-                        <thead><span class="text-light text-center">Cartão de Crédito</span></thead>
-                        <tr>
-                            <td><span>Meta Cartão</span></td>
-                            <td>1500</td>
-                        </tr>
-                        <tr>
-                            <td><span>spent</span></td>
-                            <td>3033,95</td>
-                        </tr>
-                        <tr>
-                            <td><span>Success</span></td>
-                            <td>202%</td>
-                        </tr>
-                    </table>
-                </div>
-            </section>
-            <section class="loan">
-                <div class="container">
-                    <h2 class="text-light text-center p-2">Loans</h2>
+                <div class="loans">
+                    <div class="loans">
+                    <h2 class="text-light text-center border-bottom p-2">Loans</h2>
+                    </div>
+                    <div class="loans">
                     <div class="t-loan">
                         <table class="table table-hover table-secondary">
                             <tr>
@@ -167,6 +183,7 @@
                                 <td>12,77%</td>
                             </tr>
                         </table>
+                    </div>
                     </div>
             </section>
         </article>
