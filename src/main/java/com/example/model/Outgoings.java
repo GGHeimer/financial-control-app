@@ -51,7 +51,7 @@ public class Outgoings {
 
     // Getters and Setters
     public Long getOutId() { return outId; }
-    public void setoutId(Long outId) { this.outId = outId; }
+    public void setOutId(Long outId) { this.outId = outId; }
     public Long getUserId() { return userId; }
     public void setUserId(Long userId) { this.userId = userId; }
     public String getOutName() { return outName; }
@@ -60,8 +60,8 @@ public class Outgoings {
     public void setOutAmou(double outAmou) { this.outAmou = outAmou; }
     public String getOutDueDate() { return outDueDate; }
     public void setOutDueDate(String outDueDate) { this.outDueDate = outDueDate; }
-    public boolean  getoutStatus() { return outStatus; }
-    public void setoutStatus(boolean outStatus) { this.outStatus = outStatus; }
+    public boolean isOutStatus() { return outStatus; }
+    public void setOutStatus(boolean outStatus) { this.outStatus = outStatus; }
     public String getOutCat() { return outCat; }
     public void setOutCat(String outCat) { this.outCat = outCat; }
     public LocalDate getOutDate() { return outDate; }

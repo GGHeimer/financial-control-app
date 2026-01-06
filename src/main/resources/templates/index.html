@@ -22,23 +22,20 @@
             <section class="inc-out">
                 <div class="inc-out">
                     <div class="incomings">
-                        <h2 class="text-center">Incomnigs</h2>
+                        <h2 class="text-light text-center border-bottom p-2">Incomnigs</h2>
                         <table class="table table-secondary table-hover table-scrollable">
                             <thead>
                                 <tr>
                                     <th scope="col"><span class="text-success">Description</span></th>
                                     <th scope="col"><span class="text-success">Amount (R$)</span></th>
-                                    <th scope="col"><span class="text-success">Date</span></th>
-                                    <th scope="col"><span class="text-success">Category</span></th>
                                     <th scope="col"><span class="text-success">Action</span></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="incoming : ${incomings}">
+                                <tr><td colspan="5" class="text-end fw-bold">Total: R$ <span th:text="${incomingsSum}">0.00</span></td></tr>
+                                <tr th:each="incoming : ${incomingsList}">
                                     <td th:text="${incoming.incName}"></td>
                                     <td th:text="${incoming.incAmou}"></td>
-                                    <td th:text="${incoming.incDate}"></td>
-                                    <td th:text="${incoming.incCat}"></td>
                                     <td>
                                         <a th:href="@{/update-incoming/{id}(id=${incoming.incId})}"> <button
                                                 class="btn btn-hover"><svg xmlns="http://www.w3.org/2000/svg" width="16"
@@ -63,24 +60,23 @@
                                 class="btn btn-primary"><i class="bi bi-plus-square">+</i></button></a>
                     </div>
                     <div class="outgoings">
-                        <h2 class="text-center">Outgoings</h2>
+                        <h2 class="text-light text-center border-bottom p-2">Outgoings</h2>
                         <table class="table table-secondary table-hover table-scrollable">
                             <thead>
                                 <tr>
                                     <th scope="col"><span class="text-success">Description</span></th>
                                     <th scope="col"><span class="text-success">Amount (R$)</span></th>
                                     <th scope="col"><span class="text-success">Due Date</span></th>
-                                    <th scope="col"><span class="text-success">Date</span></th>
                                     <th scope="col"><span class="text-success">Category</span></th>
                                     <th scope="col"><span class="text-success">Action</span></th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr><td colspan="7" class="text-end fw-bold">Total: R$ <span th:text="${outgoingsSum}">0.00</span></td></tr>
                                 <tr th:each="outgoing : ${outgoings}">
                                     <td th:text="${outgoing.outName}"></td>
                                     <td th:text="${outgoing.outAmou}"></td>
                                     <td th:text="${outgoing.outDueDate}"></td>
-                                    <td th:text="${outgoing.outDate}"></td>
                                     <td th:text="${outgoing.outCat}"></td>
                                     <td>
                                         <a th:href="@{/update-outgoing/{id}(id=${outgoing.outId})}"> <button

@@ -43,4 +43,8 @@ public class IncomingsService {
         }
         return null;
     }
+
+    public Double getTotalIncomings(){
+        return incomingsRepository.getTotalIncomings();
+    }
 }

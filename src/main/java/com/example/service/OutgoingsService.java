@@ -1,6 +1,8 @@
 package com.example.service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,5 +42,18 @@ public class OutgoingsService {
             return outgoingsRepository.save(existingOutgoing);
         }
         return null;
+    }
+
+    public Double getTotalOutgoings() {
+        return outgoingsRepository.getTotalOutgoings();
+    }
+
+    public Map<String, Double> getTotalsByName() {
+        List<Outgoings> outgoings = outgoingsRepository.findAll();
+        return outgoings.stream()
+            .collect(Collectors.groupingBy(
+                Outgoings::getOutName,
+                Collectors.summingDouble(Outgoings::getOutAmou)
+            ));
     }
 }
