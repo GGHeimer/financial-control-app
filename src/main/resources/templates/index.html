@@ -11,7 +11,7 @@
     <title>Financial Control App</title>
 </head>
 
-<body class="bg-success">
+<body class="bg-light">
     <header>
         <div class="text-dark">
             <h1 class="text-center">Financial Control App</h1>
@@ -19,97 +19,75 @@
     </header>
     <main>
         <article>
-            <section class="inc-out">
+            <section>
                 <div class="inc-out">
-                    <div class="incomings">
-                        <h2 class="text-light text-center border-bottom p-2">Incomnigs</h2>
-                        <table class="table table-secondary table-hover table-scrollable">
+                    <div class="incomings border">
+                        <h2 class="text-center border-bottom p-2">Incomnigs<a class="p-3" href="incoming-list.html" th:href="@{/incomings}"><button type="button"
+                                class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+</svg></button></a></h2>
+                        
+                        <table class="table table-light table-hover table-scrollable">
                             <thead>
                                 <tr>
                                     <th scope="col"><span class="text-success">Description</span></th>
                                     <th scope="col"><span class="text-success">Amount (R$)</span></th>
-                                    <th scope="col"><span class="text-success">Action</span></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><td colspan="5" class="text-end fw-bold">Total: R$ <span th:text="${incomingsSum}">0.00</span></td></tr>
-                                <tr th:each="incoming : ${incomingsList}">
-                                    <td th:text="${incoming.incName}"></td>
-                                    <td th:text="${incoming.incAmou}"></td>
-                                    <td>
-                                        <a th:href="@{/update-incoming/{id}(id=${incoming.incId})}"> <button
-                                                class="btn btn-hover"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                    height="16" fill="currentColor" class="bi bi-pencil"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
-                                                </svg></button></a>
-                                        <a th:href="@{/incoming/delete/{id}(id=${incoming.incId})}">
-                                            <button class="btn btn-hover"><svg xmlns="http://www.w3.org/2000/svg"
-                                                    width="16" height="16" fill="currentColor" class="bi bi-trash-fill"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
-                                                </svg></button></a>
-                                    </td>
-
+                                <tr th:each="entry : ${incomingsTotalsByName}">
+                                    <td th:text="${entry.key}"></td>
+                                    <td th:text="${entry.value}"></td>
                                 </tr>
+                                <tr><td colspan="2" class="text-end fw-bold">Total: R$ <span th:text="${incomingsSum}">0.00</span></td></tr>
+                                
                             </tbody>
                         </table>
                         <a href="add-incoming.html" th:href="@{/add-incoming}"><button type="button"
                                 class="btn btn-primary"><i class="bi bi-plus-square">+</i></button></a>
                     </div>
-                    <div class="outgoings">
-                        <h2 class="text-light text-center border-bottom p-2">Outgoings</h2>
-                        <table class="table table-secondary table-hover table-scrollable">
+                    <div class="outgoings border">
+                        <h2 class="text-center border-bottom p-2">Outgoings<a class="p-3" href="outgoings-list.html" th:href="@{/outgoings}"><button type="button"
+                                class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+</svg></button></a></h2>
+                        <table class="table table-light table-hover table-scrollable">
                             <thead>
                                 <tr>
                                     <th scope="col"><span class="text-success">Description</span></th>
                                     <th scope="col"><span class="text-success">Amount (R$)</span></th>
-                                    <th scope="col"><span class="text-success">Due Date</span></th>
-                                    <th scope="col"><span class="text-success">Category</span></th>
-                                    <th scope="col"><span class="text-success">Action</span></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><td colspan="7" class="text-end fw-bold">Total: R$ <span th:text="${outgoingsSum}">0.00</span></td></tr>
-                                <tr th:each="outgoing : ${outgoings}">
-                                    <td th:text="${outgoing.outName}"></td>
-                                    <td th:text="${outgoing.outAmou}"></td>
-                                    <td th:text="${outgoing.outDueDate}"></td>
-                                    <td th:text="${outgoing.outCat}"></td>
-                                    <td>
-                                        <a th:href="@{/update-outgoing/{id}(id=${outgoing.outId})}"> <button
-                                                class="btn btn-hover"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                    height="16" fill="currentColor" class="bi bi-pencil"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
-                                                </svg></button></a>
-                                        <a th:href="@{/outgoing/delete/{id}(id=${outgoing.outId})}">
-                                            <button class="btn btn-hover"><svg xmlns="http://www.w3.org/2000/svg"
-                                                    width="16" height="16" fill="currentColor" class="bi bi-trash-fill"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
-                                                </svg></button></a>
-                                    </td>
+                                <tr th:each="entry : ${outgoingsTotalByName}">
+                                    <td th:text="${entry.key}"></td>
+                                    <td th:text="${entry.value}"></td>
                                 </tr>
+                                <tr><td colspan="7" class="text-end fw-bold">Total: R$ <span th:text="${outgoingsSum}">0.00</span></td></tr>
                             </tbody>
                         </table>
                         <a href="add-outgoing.html" th:href="@{/add-outgoing}"><button type="button"
                                 class="btn btn-primary"><i class="bi bi-plus-square">+</i></button></a>
                     </div>
+                     <div>
+                        <table>
+                            <th>Balance</th>
+                            <tr><td>R$ <span th:text="${balance}">0.00</span></td></tr>
+                        </table>
+                    </div>
+                </div>
             </section>
             <section class="goal-loan">
                 <div class="goals">
                     <div>
-                    <h2 class="text-light text-center border-bottom p-2">Goals</h2>
+                    <h2 class="text-center border-bottom p-2">Goals</h2>
                     </div>
                     <div class="t-goal">
                     <div>
-                        <table class="table table-hover table-secondary">
-                            <thead><span class="text-light text-center">Savings</span></thead>
+                        <table class="table table-hover table-light">
+                            <thead><span class="text-center">Savings</span></thead>
                             <tr>
                                 <td><span>Savings Goal</span></td>
                                 <td>1500</td>
@@ -125,10 +103,10 @@
                         </table>
                     </div>
                     <div>
-                        <table class="table table-hover table-secondary">
-                            <thead><span class="text-light text-center">Cartão de Crédito</span></thead>
+                        <table class="table table-hover table-light">
+                            <thead><span class="text-center">Credit Card</span></thead>
                             <tr>
-                                <td><span>Meta Cartão</span></td>
+                                <td><span>CC Goal</span></td>
                                 <td>1500</td>
                             </tr>
                             <tr>

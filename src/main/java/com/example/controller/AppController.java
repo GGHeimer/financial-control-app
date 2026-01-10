@@ -22,12 +22,18 @@ public class AppController {
     
     @RequestMapping("/")
     public String listAllIncOut(Model model) {
+        Double incomingsSum = incomingsService.getTotalIncomings();
+        Double outgoingsSum = outgoingsService.getTotalOutgoings();
+        Double balance = Math.round((incomingsSum - outgoingsSum) * 100.0) / 100.0;
+        
         model.addAttribute("incomingsList", incomingsService.getAllIncomings());
         model.addAttribute("outgoings", outgoingsService.getAllOutgoings());
         model.addAttribute("incoming", new Incomings());
-        model.addAttribute("incomingsSum", incomingsService.getTotalIncomings());
-        model.addAttribute("outgoingsSum", outgoingsService.getTotalOutgoings());
-        model.addAttribute("outgoingsTotalsByName", outgoingsService.getTotalsByName());
+        model.addAttribute("incomingsSum", incomingsSum);
+        model.addAttribute("outgoingsSum", outgoingsSum);
+        model.addAttribute("balance", balance);
+        model.addAttribute("incomingsTotalsByName", incomingsService.getTotalIncomingsByName());
+        model.addAttribute("outgoingsTotalByName", outgoingsService.getTotalOutgoingsByName());
         return "index";
     }
 

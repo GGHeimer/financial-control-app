@@ -16,7 +16,8 @@ public class OutgoingsingsController {
     @GetMapping("/outgoings")
     public String listAllIncomings(Model model) {
         model.addAttribute("outgoings", outgoingsService.getAllOutgoings());
-        return "index";
+        model.addAttribute("outgoingsSum", outgoingsService.getTotalOutgoings());
+        return "outgoings-list";
     }
 }
 

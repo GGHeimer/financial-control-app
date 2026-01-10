@@ -1,8 +1,9 @@
 package com.example.service;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,12 +49,14 @@ public class OutgoingsService {
         return outgoingsRepository.getTotalOutgoings();
     }
 
-    public Map<String, Double> getTotalsByName() {
-        List<Outgoings> outgoings = outgoingsRepository.findAll();
-        return outgoings.stream()
-            .collect(Collectors.groupingBy(
-                Outgoings::getOutName,
-                Collectors.summingDouble(Outgoings::getOutAmou)
-            ));
+    public Map<String,Double> getTotalOutgoingsByName(){
+        List<Object[]> results = outgoingsRepository.getTotalOutgoingsByName();
+        Map<String, Double> totalsMap = new LinkedHashMap<>();
+        for (Object[] result : results) {
+            String name = (String) result[0];
+            Double total = (Double) result[1];
+            totalsMap.put(name, total);
+        }
+        return totalsMap;
     }
 }

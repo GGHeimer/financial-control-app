@@ -16,7 +16,8 @@ public class IncomingsController {
     @GetMapping("/incomings")
     public String listAllIncomings(Model model) {
         model.addAttribute("incomings", incomingsService.getAllIncomings());
-        return "index";
+        model.addAttribute("incomingsSum", incomingsService.getTotalIncomings());
+        return "incomings-list";
     }
     
 }

@@ -1,6 +1,8 @@
 package com.example.service;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,5 +48,16 @@ public class IncomingsService {
 
     public Double getTotalIncomings(){
         return incomingsRepository.getTotalIncomings();
+    }
+
+    public Map<String,Double> getTotalIncomingsByName(){
+        List<Object[]> results = incomingsRepository.getTotalIncomingsByName();
+        Map<String, Double> totalsMap = new LinkedHashMap<>();
+        for (Object[] result : results) {
+            String name = (String) result[0];
+            Double total = (Double) result[1];
+            totalsMap.put(name, total);
+        }
+        return totalsMap;
     }
 }
