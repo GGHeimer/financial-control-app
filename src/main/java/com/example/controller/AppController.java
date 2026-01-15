@@ -32,7 +32,7 @@ public class AppController {
         model.addAttribute("incomingsSum", incomingsSum);
         model.addAttribute("outgoingsSum", outgoingsSum);
         model.addAttribute("balance", balance);
-        model.addAttribute("incomingsTotalsByName", incomingsService.getTotalIncomingsByName());
+        model.addAttribute("incomingsTotalByName", incomingsService.getTotalIncomingsByName());
         model.addAttribute("outgoingsTotalByName", outgoingsService.getTotalOutgoingsByName());
         return "index";
     }

@@ -2,57 +2,146 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" media="all" href="../../css/style.css" th:href="@{/css/style.css}">
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/style.css" th:href="@{/css/dashboard.css}">
+    <link rel="stylesheet" href="../static/css/dashboard.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <title>Financial Control App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
+    <title>Finance Control - Dashboard</title>
 </head>
 
-<body class="bg-light">
-    <header>
-        <div class="text-dark">
-            <h1 class="text-center">Financial Control App</h1>
-        </div>
-    </header>
-    <main>
-        <article>
+<body>
+    <div class="grid-container">
+        <header>
+            <div class="header">
+                <div class="logo">
+                    <img th:src="@{/img/logo.png}" src="../static/img/logo.png" alt="app-logo-cash-happyface-coins-financecontrol">
+                </div>
+                <div class="title">
+                    <h1>Finance Control</h1>
+                </div>
+                <div class="login">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="1.5">
+                            <circle cx="12" cy="8.196" r="4.446" />
+                            <path d="M19.608 20.25a7.608 7.608 0 0 0-15.216 0" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </header>
+        <aside>
+            <nav class="navbar bg-body-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../templates/incomings-list.html"
+                        th:href="@{/incomings}">Incomings</a>
+                </div>
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../templates/outgoings-list.html"
+                        th:href="@{/outgoings}">Outgoings</a>
+                </div>
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../templates/dashboard.html">Goals</a>
+                </div>
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../templates/dashboard.html">Loans</a>
+                </div>
+            </nav>
+        </aside>
+        <main>
             <section>
-                <div class="inc-out">
+                <div class="shorts">
+                    <div class="goals border border-solid">
+                        <div>
+                            <h3>Goals</h3>
+                        </div>
+                        <div class="target">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                                    <path fill="currentColor"
+                                        d="M8 0q.552.001 1.09.074c.337.047.499.424.324.716L9.4.814a.52.52 0 0 1-.517.243A6.995 6.995 0 0 0 1.003 8c0 3.87 3.13 7 7 7a6.995 6.995 0 0 0 6.944-7.88a.52.52 0 0 1 .243-.517l.022-.014c.292-.175.67-.013.716.324q.075.532.075 1.09c0 4.42-3.58 8-8 8s-8-3.58-8-8s3.58-8 8-8z" />
+                                    <path fill="currentColor"
+                                        d="M8 4c.177 0 .253.211.128.336l-.592.592a.7.7 0 0 1-.312.173a3 3 0 0 0-2.22 2.9c0 1.66 1.34 3 3 3c1.39 0 2.56-.944 2.9-2.22a.7.7 0 0 1 .173-.312l.592-.592c.126-.126.337-.05.337.128c0 2.21-1.79 4-4 4s-4-1.79-4-4s1.79-4 4-4z" />
+                                    <path fill="currentColor"
+                                        d="M12.6.008a.5.5 0 0 1 .405.395l.435 2.17l2.17.435a.5.5 0 0 1 .159.919l-2.5 1.5a.5.5 0 0 1-.257.071h-1.79l-2.35 2.35a.5.5 0 0 1-.707-.707l2.35-2.35v-1.79l.005-.067a.5.5 0 0 1 .066-.19l1.5-2.5l.044-.062A.5.5 0 0 1 12.6.01z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h6>R$ 1.500,00
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="loan">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                    <path fill="currentColor"
+                                        d="m15 22l-1.41 1.41L16.17 26H4V8H2v18c0 1.103.897 2 2 2h12.17l-2.58 2.59L15 32l5-5z" />
+                                    <circle cx="11" cy="16" r="1" fill="currentColor" />
+                                    <path fill="currentColor"
+                                        d="M24 20H8c-1.103 0-2-.897-2-2v-4c0-1.103.897-2 2-2h16c1.103 0 2 .897 2 2v4c0 1.103-.897 2-2 2M8 14v4h16v-4z" />
+                                    <path fill="currentColor"
+                                        d="M28 4H15.83l2.58-2.59L17 0l-5 5l5 5l1.41-1.41L15.83 6H28v18h2V6c0-1.102-.897-2-2-2" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h6>R$5.000,00</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="balance text-center">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M16.463 1.587v7.537H24V1.587zm1.256 1.256h5.025v5.025h-5.025zm1.256 1.256v2.513h2.513V4.099zM3.77 5.355V8.53h3.376c2.142 0 3.358 1.04 3.358 2.939c0 1.947-1.216 3.011-3.358 3.011H3.769V8.53H0v13.884h3.769v-4.76h3.57c4.333 0 6.815-2.352 6.815-6.32c0-3.771-2.482-5.978-6.814-5.978Z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td>R$ <span th:text="${balance}">0.00</span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="ingo mt-5">
                     <div class="incomings border">
-                        <h2 class="text-center border-bottom p-2">Incomnigs<a class="p-3" href="incoming-list.html" th:href="@{/incomings}"><button type="button"
-                                class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
-  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
-</svg></button></a></h2>
-                        
+                        <h2 class="text-center border-bottom p-2">Incomnigs <a href="add-incoming.html" th:href="@{/add-incoming}"><button type="button"
+                                                class="btn btn-primary"><i class="bi bi-plus-square">+</i></button></a></h2>
                         <table class="table table-light table-hover table-scrollable">
+
                             <thead>
                                 <tr>
-                                    <th scope="col"><span class="text-success">Description</span></th>
-                                    <th scope="col"><span class="text-success">Amount (R$)</span></th>
+                                    <th scope="col"><span class="text-success">Sample Description</span></th>
+                                    <th scope="col"><span class="text-success">Sample Amount (R$)</span></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="entry : ${incomingsTotalsByName}">
+                                <tr th:each="entry : ${incomingsTotalByName}">
                                     <td th:text="${entry.key}"></td>
                                     <td th:text="${entry.value}"></td>
                                 </tr>
-                                <tr><td colspan="2" class="text-end fw-bold">Total: R$ <span th:text="${incomingsSum}">0.00</span></td></tr>
-                                
+                                <tr>
+                                    <td colspan="3" class="text-end fw-bold">Total: R$ <span
+                                            th:text="${incomingsSum}">0.00</span></td>
+                                </tr>
                             </tbody>
                         </table>
-                        <a href="add-incoming.html" th:href="@{/add-incoming}"><button type="button"
-                                class="btn btn-primary"><i class="bi bi-plus-square">+</i></button></a>
                     </div>
                     <div class="outgoings border">
-                        <h2 class="text-center border-bottom p-2">Outgoings<a class="p-3" href="outgoings-list.html" th:href="@{/outgoings}"><button type="button"
-                                class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
-  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
-</svg></button></a></h2>
+                        <h2 class="text-center border-bottom p-2">Outgoings <a href="add-outgoing.html" th:href="@{/add-outgoing}"><button type="button"
+                                                class="btn btn-primary"><i class="bi bi-plus-square">+</i></button></a></h2>
+                        
                         <table class="table table-light table-hover table-scrollable">
                             <thead>
                                 <tr>
@@ -65,113 +154,29 @@
                                     <td th:text="${entry.key}"></td>
                                     <td th:text="${entry.value}"></td>
                                 </tr>
-                                <tr><td colspan="7" class="text-end fw-bold">Total: R$ <span th:text="${outgoingsSum}">0.00</span></td></tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td colspan="7" class="text-end fw-bold">Total: R$ <span
+                                            th:text="${outgoingsSum}">0.00</span></td>
+                                </tr>
                             </tbody>
                         </table>
-                        <a href="add-outgoing.html" th:href="@{/add-outgoing}"><button type="button"
-                                class="btn btn-primary"><i class="bi bi-plus-square">+</i></button></a>
-                    </div>
-                     <div>
-                        <table>
-                            <th>Balance</th>
-                            <tr><td>R$ <span th:text="${balance}">0.00</span></td></tr>
-                        </table>
                     </div>
                 </div>
             </section>
-            <section class="goal-loan">
-                <div class="goals">
-                    <div>
-                    <h2 class="text-center border-bottom p-2">Goals</h2>
-                    </div>
-                    <div class="t-goal">
-                    <div>
-                        <table class="table table-hover table-light">
-                            <thead><span class="text-center">Savings</span></thead>
-                            <tr>
-                                <td><span>Savings Goal</span></td>
-                                <td>1500</td>
-                            </tr>
-                            <tr>
-                                <td><span>Saved</span></td>
-                                <td>328,14</td>
-                            </tr>
-                            <tr>
-                                <td><span>Success</span></td>
-                                <td>22%</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div>
-                        <table class="table table-hover table-light">
-                            <thead><span class="text-center">Credit Card</span></thead>
-                            <tr>
-                                <td><span>CC Goal</span></td>
-                                <td>1500</td>
-                            </tr>
-                            <tr>
-                                <td><span>spent</span></td>
-                                <td>3033,95</td>
-                            </tr>
-                            <tr>
-                                <td><span>Success</span></td>
-                                <td>202%</td>
-                            </tr>
-                        </table>
-                    </div>
-                    </div>
-                </div>
-                <div class="loans">
-                    <div class="loans">
-                    <h2 class="text-light text-center border-bottom p-2">Loans</h2>
-                    </div>
-                    <div class="loans">
-                    <div class="t-loan">
-                        <table class="table table-hover table-secondary">
-                            <tr>
-                                <td><span>pendente</span></td>
-                                <td>1547,22</td>
-                            </tr>
-                            <tr>
-                                <td><span>quitado</span></td>
-                                <td>4091,34</td>
-                            </tr>
-                            <tr>
-                                <td><span>inicial</span></td>
-                                <td>5812,92</td>
-                            </tr>
-                            <tr>
-                                <td>efetivo</td>
-                                <td>5638,56</td>
-                            </tr>
-                            <tr>
-                                <td>diferença</td>
-                                <td>174,36</td>
-                            </tr>
-                            <tr>
-                                <td>juros inicial</td>
-                                <td>16,26%</td>
-                            </tr>
-                            <tr>
-                                <td>juros efetivo</td>
-                                <td>12,77%</td>
-                            </tr>
-                        </table>
-                    </div>
-                    </div>
-            </section>
-        </article>
-    </main>
-    <footer class="text-light">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
-                <path
-                    d="M1.25 12C1.25 6.063 6.063 1.25 12 1.25S22.75 6.063 22.75 12S17.937 22.75 12 22.75S1.25 17.937 1.25 12M12 2.75a9.25 9.25 0 1 0 0 18.5a9.25 9.25 0 0 0 0-18.5" />
-                <path
-                    d="M12.286 8.75c-2.003 0-3.536 1.503-3.536 3.25s1.533 3.25 3.536 3.25c.511 0 .995-.1 1.43-.277a.75.75 0 0 1 .567 1.389a5.3 5.3 0 0 1-1.997.388c-2.732 0-5.036-2.079-5.036-4.75s2.304-4.75 5.036-4.75a5.3 5.3 0 0 1 1.997.388a.75.75 0 0 1-.566 1.39a3.8 3.8 0 0 0-1.431-.278" />
-            </g>
-        </svg> All rights reserved - Estevao Tenorio Gegenheimer
-    </footer>
+        </main>
+        <footer class="text-dark">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+                    <path
+                        d="M1.25 12C1.25 6.063 6.063 1.25 12 1.25S22.75 6.063 22.75 12S17.937 22.75 12 22.75S1.25 17.937 1.25 12M12 2.75a9.25 9.25 0 1 0 0 18.5a9.25 9.25 0 0 0 0-18.5" />
+                    <path
+                        d="M12.286 8.75c-2.003 0-3.536 1.503-3.536 3.25s1.533 3.25 3.536 3.25c.511 0 .995-.1 1.43-.277a.75.75 0 0 1 .567 1.389a5.3 5.3 0 0 1-1.997.388c-2.732 0-5.036-2.079-5.036-4.75s2.304-4.75 5.036-4.75a5.3 5.3 0 0 1 1.997.388a.75.75 0 0 1-.566 1.39a3.8 3.8 0 0 0-1.431-.278" />
+                </g>
+            </svg> All rights reserved - Estevao Tenorio Gegenheimer
+        </footer>
+    </div>
 </body>
 
 </html>
