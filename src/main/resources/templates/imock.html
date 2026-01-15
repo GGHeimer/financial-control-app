@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/style.css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Financial Control App</title>
+</head>
+
+<body class="bg-light">
+    <header>
+        <div class="text-dark">
+            <h1 class="text-center">Financial Control App</h1>
+        </div>
+    </header>
+    <main>
+        <article>
+            <section>
+                <div class="inc-out">
+                    <div class="incomings border">
+                        <h2 class="text-center border-bottom p-2">Incomnigs<a class="p-3" href="incoming-list.html" th:href="@{/incomings}"><button type="button"
+                                class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+</svg></button></a></h2>
+                        <table class="table table-light table-hover table-scrollable">
+                            
+                            <thead>
+                                <h6 class="border border-bottom text-end fw-bold">Total: R$ 7300.00</h6>
+                                <tr>
+                                    <th scope="col"><span class="text-success">Sample Description</span></th>
+                                    <th scope="col"><span class="text-success">Sample Amount (R$)</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Salary</td>
+                                    <td>5000.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Freelance</td>
+                                    <td>1500.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Investment</td>
+                                    <td>800.00</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                        <a href="add-incoming.html" th:href="@{/add-incoming}"><button type="button"
+                                class="btn btn-primary"><i class="bi bi-plus-square">+</i></button></a>
+                    </div>
+                    <div class="outgoings border">
+                        <h2 class="text-center border-bottom p-2">Outgoings<a class="p-3" href="outgoings-list.html" th:href="@{/outgoings}"><button type="button"
+                                class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+</svg></button></a></h2>
+                        <table class="table table-light table-hover table-scrollable">
+                            <thead>
+                                <tr>
+                                    <th scope="col"><span class="text-success">Description</span></th>
+                                    <th scope="col"><span class="text-success">Amount (R$)</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="entry : ${outgoingsTotalByName}">
+                                    <td th:text="${entry.key}"></td>
+                                    <td th:text="${entry.value}"></td>
+                                </tr>
+                                <tr><td colspan="7" class="text-end fw-bold">Total: R$ <span th:text="${outgoingsSum}">0.00</span></td></tr>
+                            </tbody>
+                        </table>
+                        <a href="add-outgoing.html" th:href="@{/add-outgoing}"><button type="button"
+                                class="btn btn-primary"><i class="bi bi-plus-square">+</i></button></a>
+                    </div>
+                     <div>
+                        <table>
+                            <th>Pic Pay Balance</th>
+                            <tr><td>R$ <span th:text="${balance}">0.00</span></td></tr>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <section class="goal-loan">
+                <div class="goals">
+                    <div>
+                    <h2 class="text-center border-bottom p-2">Goals</h2>
+                    </div>
+                    <div class="t-goal">
+                    <div>
+                        <table class="table table-hover table-light">
+                            <thead><span class="text-center">Savings</span></thead>
+                            <tr>
+                                <td><span>Savings Goal</span></td>
+                                <td>1500</td>
+                            </tr>
+                            <tr>
+                                <td><span>Saved</span></td>
+                                <td>328,14</td>
+                            </tr>
+                            <tr>
+                                <td><span>Success</span></td>
+                                <td>22%</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <table class="table table-hover table-light">
+                            <thead><span class="text-center">Credit Card</span></thead>
+                            <tr>
+                                <td><span>CC Goal</span></td>
+                                <td>1500</td>
+                            </tr>
+                            <tr>
+                                <td><span>spent</span></td>
+                                <td>3033,95</td>
+                            </tr>
+                            <tr>
+                                <td><span>Success</span></td>
+                                <td>202%</td>
+                            </tr>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+                <div class="loans">
+                    <div class="loans">
+                    <h2 class="text-light text-center border-bottom p-2">Loans</h2>
+                    </div>
+                    <div class="loans">
+                    <div class="t-loan">
+                        <table class="table table-hover table-secondary">
+                            <tr>
+                                <td><span>pendente</span></td>
+                                <td>1547,22</td>
+                            </tr>
+                            <tr>
+                                <td><span>quitado</span></td>
+                                <td>4091,34</td>
+                            </tr>
+                            <tr>
+                                <td><span>inicial</span></td>
+                                <td>5812,92</td>
+                            </tr>
+                            <tr>
+                                <td>efetivo</td>
+                                <td>5638,56</td>
+                            </tr>
+                            <tr>
+                                <td>diferença</td>
+                                <td>174,36</td>
+                            </tr>
+                            <tr>
+                                <td>juros inicial</td>
+                                <td>16,26%</td>
+                            </tr>
+                            <tr>
+                                <td>juros efetivo</td>
+                                <td>12,77%</td>
+                            </tr>
+                        </table>
+                    </div>
+                    </div>
+            </section>
+        </article>
+    </main>
+    <footer class="text-light">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+                <path
+                    d="M1.25 12C1.25 6.063 6.063 1.25 12 1.25S22.75 6.063 22.75 12S17.937 22.75 12 22.75S1.25 17.937 1.25 12M12 2.75a9.25 9.25 0 1 0 0 18.5a9.25 9.25 0 0 0 0-18.5" />
+                <path
+                    d="M12.286 8.75c-2.003 0-3.536 1.503-3.536 3.25s1.533 3.25 3.536 3.25c.511 0 .995-.1 1.43-.277a.75.75 0 0 1 .567 1.389a5.3 5.3 0 0 1-1.997.388c-2.732 0-5.036-2.079-5.036-4.75s2.304-4.75 5.036-4.75a5.3 5.3 0 0 1 1.997.388a.75.75 0 0 1-.566 1.39a3.8 3.8 0 0 0-1.431-.278" />
+            </g>
+        </svg> All rights reserved - Estevao Tenorio Gegenheimer
+    </footer>
+</body>
+
+</html>
