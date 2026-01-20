@@ -68,6 +68,12 @@ thead {
     align-items: center;
 }
 
+.target {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .t-goal {
     display: inline-flex;
     flex-direction: row;
