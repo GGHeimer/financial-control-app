@@ -34,6 +34,7 @@ public class AppController {
         model.addAttribute("balance", balance);
         model.addAttribute("incomingsTotalByName", incomingsService.getTotalIncomingsByName());
         model.addAttribute("outgoingsTotalByName", outgoingsService.getTotalOutgoingsByName());
+        model.addAttribute("goalsTotal", outgoingsService.getGoals());
         return "index";
     }
 

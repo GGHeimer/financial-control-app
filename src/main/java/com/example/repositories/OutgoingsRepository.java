@@ -19,4 +19,7 @@ public interface OutgoingsRepository extends JpaRepository<Outgoings, Long> {
 
     @Query("SELECT o.outName, ROUND(SUM(o.outAmou),2) FROM Outgoings o WHERE o.outStatus = true GROUP BY o.outName ORDER BY SUM(o.outAmou) DESC")
     List<Object[]> getTotalOutgoingsByName();
+
+    @Query("SELECT ROUND(SUM(o.outAmou),2) FROM Outgoings o WHERE o.outName IN ('Luxemburgo','Reserva')")
+    Double getGoals();
 }

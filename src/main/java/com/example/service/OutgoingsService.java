@@ -59,4 +59,8 @@ public class OutgoingsService {
         }
         return totalsMap;
     }
+
+    public Double getGoals (){
+        return outgoingsRepository.getGoals();
+    }
 }

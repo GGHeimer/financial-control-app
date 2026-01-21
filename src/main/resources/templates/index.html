@@ -59,9 +59,10 @@
             <section>
                 <div class="shorts">
                     <div class="goals border border-solid">
-                        <div>
+                        <div class="ms-3">
                             <h3>Goals</h3>
                         </div>
+                        <div>
                         <div class="target">
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
@@ -74,7 +75,7 @@
                                 </svg>
                             </div>
                             <div>
-                                <h6>R$ 1.500,00
+                                <h6 class="p-1 mt-2">R$ <span th:text="${goalsTotal}">0.00</span>
                                 </h6>
                             </div>
                         </div>
@@ -91,8 +92,9 @@
                                 </svg>
                             </div>
                             <div>
-                                <h6>R$5.000,00</h6>
+                                <h6 class="p-1 mt-2">R$ 0,00</h6>
                             </div>
+                        </div>
                         </div>
                     </div>
 
@@ -122,8 +124,8 @@
 
                             <thead>
                                 <tr>
-                                    <th scope="col"><span class="text-success">Sample Description</span></th>
-                                    <th scope="col"><span class="text-success">Sample Amount (R$)</span></th>
+                                    <th scope="col"><span class="text-success">Description</span></th>
+                                    <th scope="col"><span class="text-success">Amount (R$)</span></th>
                                 </tr>
                             </thead>
                             <tbody>

@@ -46,10 +46,12 @@ main {
 
 .shorts {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 
     & .goals {
         display: inline-flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
         max-width: 40vw;
@@ -101,6 +103,7 @@ main {
 
 .ingo {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .incomings {

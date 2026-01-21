@@ -56,6 +56,10 @@ thead {
     padding: 10px;
 }
 
+.shorts {
+    display: flex;
+    flex-wrap: wrap;
+}
 .goal-loan {
     display: flex;
     flex-direction: row;
@@ -64,6 +68,7 @@ thead {
 
 .goals {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
 }
